@@ -6,7 +6,6 @@ const AuthLayout = ({children}) => {
     return (
         <>
             <Navbar></Navbar>
-
             {children}
         </>
     );
