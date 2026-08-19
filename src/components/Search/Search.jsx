@@ -3,11 +3,13 @@ import { Input } from "@heroui/react";
 import { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const Search = () => {
     const [searchingInput, setSearchingInput] = useState('');
     const [tiles, setTiles] = useState([]);
     const [loading, setLoading] = useState(true);
+      const router = useRouter();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,9 +28,12 @@ const Search = () => {
 
     const handleSearch = () => {
         if (searchingInput.trim() === '') {
-            toast("write something")
-            console.log('Please enter a search term');
+            toast.warning("Please enter a Tile Title")
+            console.log('Please enter a Tile Title');
             return;
+        }else{
+          router.push(`/tiles/search?q=${encodeURIComponent(searchingInput.trim())}`); 
+          
         }
         
         const expectedTiles = tiles.filter(tile => 
@@ -51,12 +56,14 @@ const Search = () => {
                 placeholder="Search For Your Choice"
                 onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
             />
+            
             <button 
                 onClick={handleSearch} 
                 className="bg-[#d81b99] hover:bg-[#b8167a] text-white p-2.5 rounded-full transition-colors"
-            >
+                >
                 <FaSearch size={16} />
             </button>
+                
             
         </div>
     );
