@@ -19,7 +19,7 @@ const tiles = await jsondata();
        <Marquee 
         speed={40} 
         gradient={false}
-        className="text-white bg-black font-medium text-xl"
+        className="text-white bg-black font-medium text-xl p-4"
         pauseOnHover
       >
         {fullText}

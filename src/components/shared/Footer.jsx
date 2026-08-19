@@ -8,7 +8,7 @@ const Footer = () => {
         <footer className="bg-gray-900 text-gray-300">
             {/* Main Footer */}
             <div className="container mx-auto px-4 py-12">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 text-center sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {/* Brand Section */}
                     <div>
                         <h2 className="text-2xl font-bold text-white mb-4">
@@ -17,7 +17,7 @@ const Footer = () => {
                         <p className="text-sm leading-relaxed mb-4">
                             Complete Your Desires With Us. Discover premium quality tiles for every space.
                         </p>
-                        <div className="flex space-x-4">
+                        <div className="flex space-x-4 justify-center">
                             <a href="#" className="text-gray-400 hover:text-[#d81b99] transition-colors">
                                 <FaFacebook size={20} />
                             </a>
@@ -37,9 +37,9 @@ const Footer = () => {
                     </div>
 
                     {/* Quick Links */}
-                    <div>
+                    <div className=''>
                         <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2 ">
                             <li>
                                 <Link href="/tiles" className="hover:text-[#d81b99] transition-colors">
                                     All Tiles
@@ -93,20 +93,20 @@ const Footer = () => {
                     {/* Contact Info */}
                     <div>
                         <h3 className="text-white font-semibold text-lg mb-4">Get In Touch</h3>
-                        <ul className="space-y-3">
-                            <li className="flex items-start gap-3">
+                        <ul className="space-y-3 ">
+                            <li className="flex justify-center gap-3">
                                 <FaRegAddressCard />
                                 <span className="text-sm">123 Tile Street, Design City, DC 10001</span>
                             </li>
-                            <li className="flex items-start gap-3">
+                            <li className="flex justify-center gap-3">
                                 <FaPhone />
                                 <span className="text-sm">+1 (555) 123-4567</span>
                             </li>
-                            <li className="flex items-start gap-3">
+                            <li className="flex justify-center gap-3">
                                 <MdInfoOutline />
                                 <span className="text-sm">info@tilehub.com</span>
                             </li>
-                            <li className="flex items-start gap-3">
+                            <li className="flex justify-center gap-3">
                                 <CiTimer />
                                 <span className="text-sm">Mon-Fri: 9AM - 6PM</span>
                             </li>
