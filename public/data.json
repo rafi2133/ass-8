@@ -75,7 +75,7 @@
     "id": "tile_007",
     "title": "Encaustic Patterned Tile",
     "description": "Vibrant encaustic tile with geometric patterns in terracotta and cream tones",
-    "image": "/images/tiles/tile_007.jpg",
+    "image": "https://images.unsplash.com/photo-1531162805941-58330188d75c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTR8fHRpbGVzfGVufDB8fDB8fHww",
     "category": "encaustic",
     "price": 95.60,
     "currency": "USD",

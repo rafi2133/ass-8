@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import bg from "../../assets/bg.png"
+import Link from 'next/link';
 
 const Banner = () => {
     return (
@@ -27,9 +28,11 @@ const Banner = () => {
                 <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-2xl text-gray-200">
                     Transform your space with our exclusive collection of handcrafted tiles
                 </p>
+                <Link href="/tiles">
                 <button className="bg-[#d81b99] hover:bg-[#b8167a] text-white px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
                     Browse Now
                 </button>
+                </Link>
             </div>
         </div>
         </div>

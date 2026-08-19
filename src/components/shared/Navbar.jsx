@@ -1,16 +1,11 @@
 'use client'
 import Link from "next/link";
-import { useState } from "react";
-import { FaSearch } from "react-icons/fa";
+
 import NavLink from "./NavLink";
 
 
 const Navbar = () => {
-const [showSearch, setShowSearch] = useState(false);
 
-    const searchHandle = () => {
-        setShowSearch(!showSearch);
-    }
 
     const nav = <>
         <NavLink href={'/'}>Home</NavLink>
@@ -20,37 +15,7 @@ const [showSearch, setShowSearch] = useState(false);
 
     return (
         <div>
-            {showSearch && (
-                <div className="container mx-auto px-4 py-3">
-                    <label className="input input-bordered flex items-center gap-2 w-full max-w-md mx-auto">
-                        <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <g
-                                strokeLinejoin="round"
-                                strokeLinecap="round"
-                                strokeWidth="2.5"
-                                fill="none"
-                                stroke="currentColor"
-                            >
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <path d="m21 21-4.3-4.3"></path>
-                            </g>
-                        </svg>
-                        <input 
-                            type="search" 
-                            placeholder="Search tiles..." 
-                            className="w-full"
-                            autoFocus
-                        />
-                        <button 
-                            onClick={() => setShowSearch(false)} 
-                            className="btn btn-ghost btn-xs"
-                        >
-                            ✕
-                        </button>
-                    </label>
-                </div>
-            )}
-            
+           
             <div className="navbar bg-base-100 shadow-sm">
                 <div className="navbar-start">
                     <div className="dropdown  md:hidden ">
@@ -71,9 +36,7 @@ const [showSearch, setShowSearch] = useState(false);
                     </ul>
                 </div>
                 <div className="navbar-end gap-2">
-                    <button className="cursor-pointer" onClick={searchHandle}>
-                        <FaSearch />
-                    </button>
+                    
                     <Link href={'/signin'} className="btn bg-[#db4899] text-white">Log In</Link>
                 </div>
             </div>

@@ -8,7 +8,7 @@ export default function NotFound() {
         <div className="card-body text-center">
           
           {/* 404 Icon */}
-          <div className="text-8xl font-bold text-error mb-2">404</div>
+          <div className="text-8xl font-bold  mb-2">404</div>
           
           <h2 className="text-2xl font-bold">Page Not Found</h2>
           
@@ -16,7 +16,7 @@ export default function NotFound() {
           
           {/* Buttons */}
           <div className="flex flex-col gap-2 mt-4">
-            <Link href="/" className="btn btn-primary gap-2">
+            <Link href="/" className="btn text-white bg-[#860c76] gap-2">
               <FaHome /> Go Home
             </Link>
             
