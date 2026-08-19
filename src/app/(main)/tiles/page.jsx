@@ -1,6 +1,8 @@
+import Search from "@/components/Search/Search";
 import { jsondata } from "@/lib/data";
 import Link from "next/link";
-import {Input} from "@heroui/react";
+import { BsCurrencyDollar } from "react-icons/bs";
+
 
 
 
@@ -10,7 +12,7 @@ const AllTilesPage = async () => {
 
     return (
         <div className="">
-            <div className="m-4 p-4 border-b-2 flex justify-between">
+            <div className="m-4 p-4 border-b-2 flex flex-col-reverse md:flex-row text-center md:text-left md:justify-between items-center gap-4">
              <div>
                 <h2 className="font-bold text-2xl">
                    
@@ -20,9 +22,7 @@ const AllTilesPage = async () => {
              </div>
 
                 <div className="">
-                    <span>
-                        <Input aria-label="Name" className="w-64" placeholder="Search For Your Choice" />
-                    </span>
+                    <Search></Search>
                 </div>
             </div>
 
@@ -79,12 +79,12 @@ const AllTilesPage = async () => {
 
                                                 </div>
                                             </div>
-                                            <div className="bg-[#d81b99]/10 px-3 py-1.5 rounded-xl">
+                                            <div className="bg-[#d81b99]/10 px-3 py-1.5 rounded-xl flex items-center">
                                                 <span className="text-xl font-bold text-[#d81b99]">
                                                     {tile.price}
                                                 </span>
-                                                <span className="text-[#d81b99] text-sm font-semibold">
-                                                    {tile.currency}
+                                                <span className="text-[#d81b99]  font-semibold">
+                                                  <BsCurrencyDollar />  
                                                 </span>
                                             </div>
                                         </div>

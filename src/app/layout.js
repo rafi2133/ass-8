@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
+import { ToastContainer } from "react-toastify";
 
 
 
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
         <Navbar></Navbar>
         {children}
         </body>
+        <ToastContainer />
     </html>
   );
 }
