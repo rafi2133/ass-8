@@ -28,7 +28,7 @@ const Navbar = () => {
                             {nav}
                         </ul>
                     </div>
-                    <Link href={'/'} className="btn btn-ghost text-xl">PX-Tile</Link>
+                    <Link href={'/'} className="btn btn-ghost text-xl">PX-<span className="text-[#d81b99]">Tile</span></Link>
                 </div>
                 <div className="navbar-center hidden md:flex">
                     <ul className="menu menu-horizontal px-1 font-bold items-center">
