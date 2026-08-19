@@ -1,16 +1,24 @@
 'use client'
 import Link from 'next/link';
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Signuppage = () => {
-    const [name, setName] = useState('');
+    
+     const {
+            register,
+            handleSubmit,
+            watch,
+            formState: { errors },
+        } = useForm()
     
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSignUp = (data) => {
+        console.log(data);
+        
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
@@ -24,11 +32,11 @@ const Signuppage = () => {
                     Create Account
                 </h2>
 
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit(handleSignUp)}>
                     <div className="mb-4">
                         <input
                             type="text"
-                            value={name}
+                            {...register("name")}
                             
                             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#d81b99]"
                             placeholder="Full Name"
@@ -40,7 +48,7 @@ const Signuppage = () => {
                         <input
                             type="email"
                             
-                            
+                            {...register("email")}
                             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#d81b99]"
                             placeholder="Email address"
                             required
@@ -50,7 +58,7 @@ const Signuppage = () => {
                     <div className="mb-4 relative">
                         <input
                             type={showPassword ? 'text' : 'password'}
-                            
+                            {...register("password")}
                             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#d81b99]"
                             placeholder="Password (min 6 characters)"
                             required
