@@ -1,6 +1,6 @@
 import { jsondata } from "@/lib/data";
 import Link from "next/link";
-import { FaDollarSign } from "react-icons/fa";
+import {Input} from "@heroui/react";
 
 
 
@@ -10,12 +10,20 @@ const AllTilesPage = async () => {
 
     return (
         <div className="">
-            <div className="m-4 p-4 border-b-2">
+            <div className="m-4 p-4 border-b-2 flex justify-between">
+             <div>
                 <h2 className="font-bold text-2xl">
                    
                     <span className="text-[#d81b99]">Complete Your Desires With Us</span>
                 </h2>
                 <p className="text-gray-500 text-sm mt-1">Discover the perfect tiles for every space</p>
+             </div>
+
+                <div className="">
+                    <span>
+                        <Input aria-label="Name" className="w-64" placeholder="Search For Your Choice" />
+                    </span>
+                </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-4">

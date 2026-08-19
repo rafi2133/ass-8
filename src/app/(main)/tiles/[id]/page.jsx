@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { FaDollarSign } from 'react-icons/fa';
 
+
 const TilesDetailsPage = async ({ params }) => {
     const { id } = await params;
     const tiles = await jsondata();
