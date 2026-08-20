@@ -4,10 +4,14 @@ import NavLink from "./NavLink";
 import { authClient } from "@/lib/auth-client";
 
 import userAvater from "@/assets/user.png"
-import Image from "next/image";
+import { useRouter } from 'next/navigation';
 
 
 const Navbar = () => {
+ const router = useRouter();
+
+
+
     const { data: session, isPending } = authClient.useSession()
     const user = session?.user;
     console.log(user);
@@ -47,9 +51,12 @@ const Navbar = () => {
                             src={user.image || userAvater}
                             alt="user"
                             width={60}
-                            height={60} 
-                            />
-                        <button onClick={async () => await authClient.signOut()} className="btn bg-[#db4899] text-white">Log Out</button>
+                            height={60}
+                        />
+                        <button onClick={async () => {
+                            await authClient.signOut();
+                            router.push('/');
+                        }} className="btn bg-[#db4899] text-white">Log Out</button>
                     </div>) :
 
                         (<Link href={'/signin'} className="btn bg-[#db4899] text-white">Log In</Link>)}
