@@ -41,7 +41,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    {isPending ? <span className="loading loading-spinner loading-xl"></span> : user ? (<div className=" flex items-center gap-2">
+                    {isPending ? <span className="loading loading-spinner loading-xl"></span> : user ? (<div className=" flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
                         <h2 className="text-sm text-gray-500">Hello ,{user.name}</h2>
                         <img
                             src={user.image || userAvater}
