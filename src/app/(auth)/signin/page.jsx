@@ -1,8 +1,10 @@
 'use client'
+import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash,  } from 'react-icons/fa';
+import { FcGoogle } from 'react-icons/fc';
 import { toast } from 'react-toastify';
 
 const Signinpage = () => {
@@ -18,13 +20,29 @@ const Signinpage = () => {
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
-    const handleLoginFunc = (data) => {
+    const handleLoginFunc = async (data) => {
         console.log(data);
         setLoading(true)
         setTimeout(() => {
             setLoading(false);
         }, 1500);
 
+
+        const { email, name, password, photo } = data;
+        const { data: res, error } = await authClient.signIn.email({
+            email: email, // required
+            password: password, // required
+            rememberMe: true,
+            callbackURL: "/",
+        });
+        console.log(res, error);
+        if (error) {
+            toast.error(error.message || 'Signup failed');
+            return;
+        }
+        if (res) {
+            toast.success('SignIN Successfully')
+        }
     }
 
     return (
@@ -36,6 +54,7 @@ const Signinpage = () => {
 
                 <form onSubmit={handleSubmit(handleLoginFunc)}>
                     <div className="mb-4">
+                        <label htmlFor="" className='text-sm text-gray-500'>E-mail</label>
                         <input
                             type="email"
                             {...register("email")}
@@ -47,6 +66,7 @@ const Signinpage = () => {
                     </div>
 
                     <div className="mb-4 relative">
+                        <label htmlFor="" className='text-sm text-gray-500'>Password</label>
                         <input
                             type={showPassword ? 'text' : 'password'}
                             {...register("password")}
@@ -58,7 +78,7 @@ const Signinpage = () => {
                         <button
                             type="button"
                             onClick={() => setShowPassword(!showPassword)}
-                            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                            className="absolute right-3 top-11 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                         >
                             {showPassword ? <FaEyeSlash /> : <FaEye />}
                         </button>
@@ -72,8 +92,14 @@ const Signinpage = () => {
                     >
                         {loading ? 'Signing in...' : 'Sign In'}
                     </button>
-                    <button class="btn w-full mt-2 rounded-xl bg-white text-black border-[#e5e5e5]">
-                        <svg aria-label="Google logo" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path d="m0 0H512V512H0" fill="#fff"></path><path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"></path><path fill="#4285f4" d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"></path><path fill="#fbbc02" d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"></path><path fill="#ea4335" d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"></path></g></svg>
+                    <button
+                        onClick={async () =>await authClient.signIn.social({
+                            provider: "google",
+                        })}
+                        className="btn w-full mt-2 rounded-xl bg-white text-black border-[#e5e5e5] flex items-center">
+                            <span className='text-xl'>
+                        <FcGoogle />
+                            </span>
                         Login with Google
                     </button>
                 </form>
