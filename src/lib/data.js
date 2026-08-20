@@ -1,5 +1,10 @@
- export const jsondata = async () => {
-  const res = await fetch('http://localhost:3000/data.json')
-  const data = await res.json(); 
-  return data;
-}
+// lib/data.js
+import fs from 'fs';
+import path from 'path';
+
+export const jsondata = async () => {
+    
+    const filePath = path.join(process.cwd(), 'public', 'data.json');
+    const fileContents = fs.readFileSync(filePath, 'utf8');
+    return JSON.parse(fileContents);
+};
